@@ -1,0 +1,12 @@
+body {
+  width: 100%;
+  margin: auto;
+  background-color: #487e95;
+  color: white;
+  font-size: 2rem;
+  text-align: center;
+}
+
+h1 {
+  font-family: "Libre Caslon Text", serif;
+}

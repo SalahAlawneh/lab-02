@@ -1,0 +1,27 @@
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 5rem;
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 5rem;
+  }
+
+
+.show {
+  width: 35%;
+  display: inline-block;
+  margin: 2rem 2rem 2rem 2rem;
+  
+}
+
+img {
+  width: 30rem;
+  height: 30rem;
+  display: inline-block;
+}
