@@ -2,8 +2,5 @@
 @import "base.css";
 @import "layout.css";
 @import "modules.css";
+@import "theme.css";
 
-
-.show {
-    display: block;
-}

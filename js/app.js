@@ -1,5 +1,5 @@
 "use strict";
-
+let arr = [];
 function card(ele) {
     this.keyword = ele.keyword;
     this.image_url = ele.image_url;
@@ -15,26 +15,30 @@ card.prototype.render = function () {
     card.find("h2").text(this.title);
     card.find("p").text(this.description);
     $("main").append(card);
-    card.removeAttr('id');
+    card.toggleClass(this.keyword);
 }
 
 $(document).ready(() => {
-
     $.ajax({ url: "data/page-1.json", dataType: 'json' }).then(function (data) {
         data.forEach(element => {
             let newCard = new card(element);
+            if (arr.includes(newCard.keyword) == false) {
+                arr.push(newCard.keyword);
+                newCard.appendSelector();
+            }
             newCard.render();
-            newCard.appendSelector();
         });
-
+    });
+    $("section").show();
+    $('select').on('change', function (e) {
+        var valueSelected = this.value;
+        console.log(valueSelected);
+        $("section").hide();
+        $(`.${valueSelected}`).show();
     });
 
 })
 
 card.prototype.appendSelector = function () {
-    let clonedOption = $("#opiton").clone();
-    $("select").append(clonedOption);
-    clonedOption.text(this.keyword);
-    // clonedOption.val(this.keyword);
-
+    $("#select").append(new Option(this.keyword, this.keyword));
 }
